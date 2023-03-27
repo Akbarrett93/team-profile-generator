@@ -1,0 +1,3 @@
+generatePage = () => {};
+
+module.exports = generatePage;

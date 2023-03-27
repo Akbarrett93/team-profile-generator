@@ -1,5 +1,8 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
 
+const generatePage = require("./src/generatePage");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -13,7 +16,7 @@ function inquirerRun() {
         type: "list",
         name: "menu",
         message: "What would you like to do?",
-        choices: ["Add a Manager", "Add an Intern", "Add an Engineer", "Quit"],
+        choices: ["Add a Manager", "Add an Intern", "Add an Engineer", "Print Your Team"],
       },
     ])
     .then((answers) => {
@@ -30,8 +33,8 @@ function inquirerRun() {
           addEngineer();
           break;
 
-        case "Quit":
-          endMenu();
+        case "Print Your Team":
+          writeHTML();
           break;
       }
     });
@@ -202,8 +205,17 @@ async function addIntern() {
   ]);
   const { name, id, email, school } = internInfo;
   const intern = new Intern(name, id, email, school);
-  empArray.push(engineer);
+  empArray.push(intern);
   inquirerRun();
+};
+
+function writeHTML() {
+  fs.writeFileSync("./dist/index.html", generatePage(empString), function (err) {
+    if (err) {
+      return console.log(err)
+    }
+  });
+  console.log("Your team profile has been created!")
 };
 
 inquirerRun();
