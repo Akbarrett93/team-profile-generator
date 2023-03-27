@@ -134,7 +134,7 @@ async function addEngineer() {
     },
     {
       type: "input",
-      name: "github",
+      name: "gitHub",
       message: "What is their GitHub username?",
       validate: (gitInput) => {
         if (gitInput) {
@@ -142,14 +142,14 @@ async function addEngineer() {
         } else {
           console.log("Please provide their Github username");
         }
-      }
-    }
+      },
+    },
   ]);
   const { name, id, email, gitHub } = engineerInfo;
   const engineer = new Engineer(name, id, email, gitHub);
   empArray.push(engineer);
   inquirerRun();
-};
+}
 
 // Adding an Intern to the array
 async function addIntern() {
@@ -200,22 +200,22 @@ async function addIntern() {
         } else {
           console.log("Please enter the school name");
         }
-      }
-    }
+      },
+    },
   ]);
   const { name, id, email, school } = internInfo;
   const intern = new Intern(name, id, email, school);
   empArray.push(intern);
   inquirerRun();
-};
+}
 
 function writeHTML() {
-  fs.writeFileSync("./dist/index.html", generatePage(empString), function (err) {
+  fs.writeFileSync("./dist/index.html", generatePage(empArray), function (err) {
     if (err) {
-      return console.log(err)
+      return console.log(err);
     }
   });
-  console.log("Your team profile has been created!")
+  console.log("Your team profile has been created!");
 };
 
 inquirerRun();
