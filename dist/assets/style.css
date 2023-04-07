@@ -1,0 +1,18 @@
+.navbar {
+    background-color: lightgray;
+}
+
+.container {
+    margin: 25px auto;
+    justify-content: space-evenly;
+    display: flex;
+    
+}
+
+#card {
+    background-color: lightgray;
+}
+
+#text {
+    background-color: lightblue;
+}

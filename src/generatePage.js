@@ -1,14 +1,14 @@
 // Manager card
 const generateManager = (manager) => {
   return `
-    <div class="container col-2" id="card">
-        <div class="border">
+    <div class="container col-4">
+        <div class="border rounded border-dark" id="card">
             <div class="card-body text-center">
                 <h4><b>${manager.name}</b></h4>
                 <h4><b>Manager <img src="https://i.ibb.co/Yhx7S33/manager.png" alt="managerIcon" style="width:50px; height:50px;"></b></h4>
-                <div class="border">
+                <div class="border border-dark p-2" id="text">
                 <p>ID: ${manager.id}</p>
-                <p>Email: ${manager.email}</p>
+                <p>Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
                 <p>Office Number: ${manager.officeNumber}</p>
                 </div>
             </div>
@@ -20,14 +20,16 @@ const generateManager = (manager) => {
 // Engineer card
 const generateEngineer = (engineer) => {
   return `
-    <div class="container col-2" id="card">
-        <div class="border">
-            <div class="card-body">
+    <div class="container col-4">
+        <div class="border rounded border-dark" id="card">
+            <div class="card-body text-center">
                 <h4><b>${engineer.name}</b></h4>
                 <h4><b>Engineer <img src="https://i.ibb.co/cQr7Sp6/engineer.png" alt="engineerIcon" style="width:50px; height:50px;"></b></h4>
+                <div class="border border-dark p-2" id="text">
                 <p>ID: ${engineer.id}</p>
-                <p>Email: ${engineer.email}</p>
-                <p>GitHub Username: ${engineer.gitHub}</p>
+                <p>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                <p>GitHub Username: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+                </div>
             </div>
         </div>
     </div>
@@ -37,14 +39,16 @@ const generateEngineer = (engineer) => {
 // Intern card
 const generateIntern = (intern) => {
   return `
-    <div class="container col-2" id="card">
-        <div class="border">
-            <div class="card-body">
+    <div class="container col-4">
+        <div class="border rounded border-dark" id="card">
+            <div class="card-body text-center">
                 <h4><b>${intern.name}</b></h4>
                 <h4><b>Intern <img src="https://i.ibb.co/4S3D6qG/intern.png" alt="internIcon" style="width:50px; height:50px;"></b></h4>
+                <div class="border border-dark p-2" id="text">
                 <p>ID: ${intern.id}</p>
-                <p>Email: ${intern.email}</p>
+                <p>Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p>School Name: ${intern.school}</p>
+                </div>
             </div>
         </div>
     </div>
