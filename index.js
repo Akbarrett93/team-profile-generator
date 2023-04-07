@@ -1,8 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const path = require("path");
 
-const generatePage = require("./src/generatePage");
+const pageCode = require("./src/generatePage");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -16,7 +15,12 @@ function inquirerRun() {
         type: "list",
         name: "menu",
         message: "What would you like to do?",
-        choices: ["Add a Manager", "Add an Intern", "Add an Engineer", "Print Your Team"],
+        choices: [
+          "Add a Manager",
+          "Add an Intern",
+          "Add an Engineer",
+          "Print Your Team",
+        ],
       },
     ])
     .then((answers) => {
@@ -210,7 +214,8 @@ async function addIntern() {
 }
 
 function writeHTML() {
-  fs.writeFileSync("./dist/index.html", generatePage(empArray), function (err) {
+  const profile = pageCode(empArray);
+  fs.writeFile("./dist/index.html", profile, function (err) {
     if (err) {
       return console.log(err);
     }
