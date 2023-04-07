@@ -28,7 +28,7 @@ const generateEngineer = (engineer) => {
                 <div class="border border-dark p-2" id="text">
                 <p>ID: ${engineer.id}</p>
                 <p>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p>GitHub Username: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+                <p>GitHub Username: <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></p>
                 </div>
             </div>
         </div>
